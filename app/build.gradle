@@ -17,6 +17,7 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
+        buildConfigField "String", 'BASE_URL', '"http://careers.picpay.com/tests/mobdev/"'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
