@@ -46,7 +46,10 @@ class MainActivityTest {
         server.start(serverPort)
 
         launchActivity<MainActivity>().apply {
-            // TODO("validate if list displays items returned by server")
+            Thread.sleep(2000)
+            RecyclerViewMatchers.checkRecyclerViewItem(R.id.rvUserList, 0, isDisplayed())
+            onView(withText("Eduardo Santos")).check(matches(isDisplayed()))
+            onView(withText("@eduardo.santos")).check(matches(isDisplayed()))
         }
 
         server.close()
