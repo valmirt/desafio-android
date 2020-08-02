@@ -40,15 +40,6 @@ object NetworkUtil {
                 actNw.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
                 else -> false
             }
-        } else {
-            cm.activeNetworkInfo?.let {
-                return@let when (it.type) {
-                    ConnectivityManager.TYPE_WIFI -> true
-                    ConnectivityManager.TYPE_MOBILE -> true
-                    ConnectivityManager.TYPE_ETHERNET -> true
-                    else -> false
-                }
-            } ?: false
-        }
+        } else cm.isDefaultNetworkActive
     }
 }
