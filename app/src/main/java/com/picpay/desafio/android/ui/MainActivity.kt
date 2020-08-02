@@ -1,7 +1,6 @@
 package com.picpay.desafio.android.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -43,13 +42,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onResume() {
         super.onResume()
-        Log.d("TESTE", "onResume")
+
         viewModel.getUserList()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        Log.d("TESTE", "onDestroy")
     }
 }
