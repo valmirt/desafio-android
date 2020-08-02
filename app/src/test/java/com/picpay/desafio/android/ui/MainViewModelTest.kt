@@ -34,7 +34,7 @@ class MainViewModelTest : BaseViewModel() {
     @Test
     fun `Should return a list of users and no error message`() = testCoroutineRule.runBlockingTest {
         //Given
-        val userList = listOf<User>()
+        val userList = listOf(mockUser())
         val result = Result(data = userList, status = StatusNetwork.SUCCESS, message = null)
         whenever(userUseCase.getUserList()).thenReturn(result)
 
@@ -63,4 +63,12 @@ class MainViewModelTest : BaseViewModel() {
         assertEquals(ErrorUtil.ERROR_DEFAULT, viewModel.messageError.value)
         assertEquals(false, viewModel.spinner.value)
     }
+
+    private fun mockUser(): User =
+        User (
+            id = 1001,
+            name = "Eduardo Santos",
+            img = "",
+            username = "@eduardo.santos"
+        )
 }
