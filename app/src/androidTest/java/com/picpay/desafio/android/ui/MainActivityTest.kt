@@ -18,6 +18,7 @@ import org.hamcrest.CoreMatchers.not
 import org.junit.Before
 import org.junit.Test
 import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 import java.net.HttpURLConnection
 
 
@@ -41,6 +42,7 @@ class MainActivityTest : BaseUITest() {
 
             onView(withText(expectedTitle)).check(matches(isDisplayed()))
         }
+        unloadKoinModules(generateTestApp(getMockWebServerUrl()))
     }
 
     @Test
@@ -56,6 +58,7 @@ class MainActivityTest : BaseUITest() {
             onView(withText("Eduardo Santos")).check(matches(isDisplayed()))
             onView(withText("@eduardo.santos")).check(matches(isDisplayed()))
         }
+        unloadKoinModules(generateTestApp(getMockWebServerUrl()))
     }
 
     @Test
@@ -67,5 +70,6 @@ class MainActivityTest : BaseUITest() {
                 withDecorView(not(`is`(getActivity(context)?.window?.decorView)))
             ).check(matches(isDisplayed()))
         }
+        unloadKoinModules(generateTestApp(getMockWebServerUrl()))
     }
 }
