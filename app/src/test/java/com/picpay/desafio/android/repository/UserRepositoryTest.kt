@@ -2,7 +2,7 @@ package com.picpay.desafio.android.repository
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.picpay.desafio.android.coreTests.BaseTest
+import com.picpay.desafio.android.base.BaseTest
 import com.picpay.desafio.android.network.PicPayService
 import com.picpay.desafio.android.network.StatusNetwork
 import kotlinx.coroutines.ExperimentalCoroutinesApi

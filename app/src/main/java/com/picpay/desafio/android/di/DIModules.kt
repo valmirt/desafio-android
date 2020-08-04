@@ -20,9 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object DIModules {
 
-    val modules = module {
-
-        //Core
+    val coreModules = module {
         single<Gson> { GsonBuilder().create() }
 
         single {
@@ -44,14 +42,17 @@ object DIModules {
 
         //API
         single { get<Retrofit>().create(PicPayService::class.java) }
+    }
 
-        //Repositories
+    val repoModules = module {
         single { UserRepository(api = get()) }
+    }
 
-        //UseCases
+    val useCaseModules = module {
         single { UserUseCase(userRepository = get()) }
+    }
 
-        //viewModels
+    val viewModelModules = module {
         viewModel { MainViewModel(userUseCase = get(), coroutineContextProvider = get()) }
     }
 }

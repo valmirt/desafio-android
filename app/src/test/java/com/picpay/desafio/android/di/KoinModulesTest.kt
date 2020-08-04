@@ -1,5 +1,6 @@
 package com.picpay.desafio.android.di
 
+import com.picpay.desafio.android.di.DIModules.coreModules
 import com.picpay.desafio.android.network.CoroutineContextProvider
 import kotlinx.coroutines.Dispatchers
 import org.junit.After
@@ -18,7 +19,7 @@ class KoinModulesTest : KoinTest {
 
     @Before
     fun setup() {
-        startKoin { modules(DIModules.modules) }
+        startKoin { modules(coreModules) }
     }
 
     @Test

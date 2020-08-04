@@ -1,5 +1,6 @@
-package com.picpay.desafio.android.coreTests
+package com.picpay.desafio.android.base
 
+import com.picpay.desafio.android.helpers.TestCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Rule
 

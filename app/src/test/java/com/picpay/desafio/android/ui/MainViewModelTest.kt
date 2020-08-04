@@ -4,8 +4,8 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.picpay.desafio.android.coreTests.BaseViewModel
-import com.picpay.desafio.android.coreTests.TestContextProvider
+import com.picpay.desafio.android.base.BaseViewModelTest
+import com.picpay.desafio.android.helpers.TestContextProvider
 import com.picpay.desafio.android.model.User
 import com.picpay.desafio.android.network.Result
 import com.picpay.desafio.android.network.StatusNetwork
@@ -17,7 +17,7 @@ import org.junit.Before
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class MainViewModelTest : BaseViewModel() {
+class MainViewModelTest : BaseViewModelTest() {
 
     private val userUseCase = mock<UserUseCase>()
 

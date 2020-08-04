@@ -1,7 +1,7 @@
 package com.picpay.desafio.android.useCase
 
 import com.nhaarman.mockitokotlin2.*
-import com.picpay.desafio.android.coreTests.BaseTest
+import com.picpay.desafio.android.base.BaseTest
 import com.picpay.desafio.android.model.User
 import com.picpay.desafio.android.network.Result
 import com.picpay.desafio.android.network.StatusNetwork

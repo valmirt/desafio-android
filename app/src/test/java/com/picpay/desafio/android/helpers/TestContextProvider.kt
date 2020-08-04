@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.coreTests
+package com.picpay.desafio.android.helpers
 
 import com.picpay.desafio.android.network.CoroutineContextProvider
 import kotlinx.coroutines.Dispatchers

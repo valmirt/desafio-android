@@ -7,6 +7,7 @@ import com.picpay.desafio.android.model.User
 import com.picpay.desafio.android.network.CoroutineContextProvider
 import com.picpay.desafio.android.network.StatusNetwork
 import com.picpay.desafio.android.useCase.UserUseCase
+import kotlinx.coroutines.withContext
 
 class MainViewModel(
     private val userUseCase: UserUseCase,
