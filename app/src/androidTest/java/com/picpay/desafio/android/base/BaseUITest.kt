@@ -5,7 +5,6 @@ import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Before
-import org.koin.core.context.stopKoin
 import org.koin.test.KoinTest
 import java.io.BufferedReader
 import java.io.Reader
@@ -55,6 +54,5 @@ abstract class BaseUITest : KoinTest {
     @After
     open fun tearDown() {
         stopMockServer()
-//        stopKoin()
     }
 }

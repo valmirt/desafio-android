@@ -15,6 +15,7 @@ import com.picpay.desafio.android.di.generateTestApp
 import com.picpay.desafio.android.helpers.RecyclerViewMatchers
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.not
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.koin.core.context.loadKoinModules
@@ -33,6 +34,13 @@ class MainActivityTest : BaseUITest() {
         loadKoinModules(generateTestApp(getMockWebServerUrl()))
     }
 
+    @After
+    fun after() {
+        super.tearDown()
+
+        unloadKoinModules(generateTestApp(getMockWebServerUrl()))
+    }
+
     @Test
     fun shouldDisplayTitle() {
         launchActivity<MainActivity>().apply {
@@ -42,7 +50,6 @@ class MainActivityTest : BaseUITest() {
 
             onView(withText(expectedTitle)).check(matches(isDisplayed()))
         }
-        unloadKoinModules(generateTestApp(getMockWebServerUrl()))
     }
 
     @Test
@@ -58,7 +65,6 @@ class MainActivityTest : BaseUITest() {
             onView(withText("Eduardo Santos")).check(matches(isDisplayed()))
             onView(withText("@eduardo.santos")).check(matches(isDisplayed()))
         }
-        unloadKoinModules(generateTestApp(getMockWebServerUrl()))
     }
 
     @Test
@@ -70,6 +76,5 @@ class MainActivityTest : BaseUITest() {
                 withDecorView(not(`is`(getActivity(context)?.window?.decorView)))
             ).check(matches(isDisplayed()))
         }
-        unloadKoinModules(generateTestApp(getMockWebServerUrl()))
     }
 }
