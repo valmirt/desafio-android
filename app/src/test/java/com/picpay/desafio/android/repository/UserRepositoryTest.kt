@@ -4,9 +4,9 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.picpay.desafio.android.base.BaseTest
 import com.picpay.desafio.android.network.PicPayService
-import com.picpay.desafio.android.network.StatusNetwork
+import com.picpay.desafio.android.network.Result
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import retrofit2.Response
@@ -31,7 +31,7 @@ class UserRepositoryTest: BaseTest() {
         val result = userRepository.getUsers()
 
         //Then
-        assertEquals(StatusNetwork.SUCCESS, result.status)
+        assertTrue(result is Result.Success)
     }
 
     @Test
@@ -43,6 +43,6 @@ class UserRepositoryTest: BaseTest() {
         val result = userRepository.getUsers()
 
         //Then
-        assertEquals(StatusNetwork.ERROR, result.status)
+        assertTrue(result is Result.Error)
     }
 }

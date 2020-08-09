@@ -4,7 +4,6 @@ import com.nhaarman.mockitokotlin2.*
 import com.picpay.desafio.android.base.BaseTest
 import com.picpay.desafio.android.model.User
 import com.picpay.desafio.android.network.Result
-import com.picpay.desafio.android.network.StatusNetwork
 import com.picpay.desafio.android.repository.UserRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert.assertEquals
@@ -25,7 +24,7 @@ class UserUseCaseTest : BaseTest() {
     @Test
     fun `Should return a Result with content`() = testCoroutineRule.runBlockingTest {
         //Given
-        val result = Result<List<User>>(data = null, status = StatusNetwork.SUCCESS, message = null)
+        val result = Result.Success<List<User>>(data = null)
         whenever(repository.getUsers()).thenReturn(result)
 
         //When

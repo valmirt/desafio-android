@@ -8,7 +8,6 @@ import com.picpay.desafio.android.base.BaseViewModelTest
 import com.picpay.desafio.android.helpers.TestContextProvider
 import com.picpay.desafio.android.model.User
 import com.picpay.desafio.android.network.Result
-import com.picpay.desafio.android.network.StatusNetwork
 import com.picpay.desafio.android.useCase.UserUseCase
 import com.picpay.desafio.android.util.ErrorUtil
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -35,7 +34,7 @@ class MainViewModelTest : BaseViewModelTest() {
     fun `Should return a list of users and no error message`() = testCoroutineRule.runBlockingTest {
         //Given
         val userList = listOf(mockUser())
-        val result = Result(data = userList, status = StatusNetwork.SUCCESS, message = null)
+        val result = Result.Success(data = userList)
         whenever(userUseCase.getUserList()).thenReturn(result)
 
         //When
@@ -51,7 +50,7 @@ class MainViewModelTest : BaseViewModelTest() {
     @Test
     fun `Should return a default error message`() = testCoroutineRule.runBlockingTest {
         //Given
-        val result = Result(data = null, status = StatusNetwork.ERROR, message = ErrorUtil.ERROR_DEFAULT)
+        val result = Result.Error<List<User>>(message = ErrorUtil.ERROR_DEFAULT)
         whenever(userUseCase.getUserList()).thenReturn(result)
 
         //When

@@ -12,12 +12,12 @@ open class BaseRepository {
             val response = call.invoke()
 
             if (response.isSuccessful) {
-                Result.success(response.body())
+                Result.Success(response.body())
             } else {
-                Result.error(ErrorUtil.parseError(response).message)
+                Result.Error(ErrorUtil.parseError(response).message)
             }
         } catch (error: Exception) {
-            Result.error(ERROR_DEFAULT)
+            Result.Error(ERROR_DEFAULT)
         }
     }
 }
